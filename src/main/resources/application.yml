@@ -1,0 +1,29 @@
+server:
+  port: 8083
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ticket_sales
+    driverClassName: org.postgresql.Driver
+    username: ticket_sales
+    password: ticket_sales
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  kafka:
+    consumer:
+      bootstrap-servers: 127.0.0.1:29092
+      group-id: group_id
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+
+topic:
+  name:
+    consumer: ticket-sales
+
+auto:
+  create:
+    topics:
+      enable: true
+

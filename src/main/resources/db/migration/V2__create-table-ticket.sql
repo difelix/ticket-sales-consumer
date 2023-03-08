@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS ticket (
+  id BIGINT GENERATED ALWAYS AS IDENTITY,
+  value NUMERIC(5,2) NOT NULL,
+  tag VARCHAR(200) NOT NULL UNIQUE,
+  description VARCHAR(500),
+  quantity_in_stock INTEGER NOT NULL,
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP,
+  PRIMARY KEY(id)
+);
